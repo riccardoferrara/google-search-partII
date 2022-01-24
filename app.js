@@ -43,11 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Routes
 // Create route for search
 app.get('/', (req, res) => {
-    res.send('HELLO BROWSER')
-})
-
-app.get('/cars', (req, res) => {
-    res.send('car')
+    res.send('This is the Search Page')
 })
 
 // Create route for results
