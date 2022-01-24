@@ -42,23 +42,31 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Routes
 // Create route for search
+app.get('/', (req, res) => {
+    res.send('HELLO BROWSER')
+})
+
+app.get('/cars', (req, res) => {
+    res.send('car')
+})
+
 // Create route for results
 
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
-  next(createError(404))
+    next(createError(404))
 })
 
 // Error Handler
 app.use((err, req, res, next) => {
-  // Only provides full error in development
-  res.locals.message = err.message
-  res.locals.error = req.app.get('env') === 'development' ? err : {}
-  res.locals.coder = req.coder
-  res.locals.hideSearch = true
-  // Render the error page
-  res.status(err.status || 500)
-  res.render('error')
+    // Only provides full error in development
+    res.locals.message = err.message
+    res.locals.error = req.app.get('env') === 'development' ? err : {}
+    res.locals.coder = req.coder
+    res.locals.hideSearch = true
+        // Render the error page
+    res.status(err.status || 500)
+    res.render('error')
 })
 
 module.exports = app
