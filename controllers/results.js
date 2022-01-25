@@ -5,7 +5,8 @@ const router = express.Router()
 
 // Create POST controller
 router.get('/', (req, res) => {
-        res.send('This is the Results Page')
+        // res.send('This is the Results Page')
+        res.render('results')
     })
     //
     // Export module
