@@ -18,11 +18,11 @@
                     <h1>
                         <a href="{{result.url}}">{{result.title}}</a>
                     </h1>
-                    <p>Well organised and easy to understand Web building tutorials with lot of example of how to use HTML, CSS, Javascript, PHP</p>
+                    <p>{{result.description}}</p>
                     <ul>
-                        <li><a class="small_links" href="https://www.google.com" target="_blank">javascipt introduction</a></li>
-                        <li><a class="small_links" href="https://www.google.com" target="_blank">js function</a></li>
-                        <li><a class="small_links" href="https://www.google.com" target="_blank">javascript exemples</a></li>
+                        {{#each result.links as |link|}}
+                            <li><a class="small_links" href="{{link.url}}" target="_blank">{{link.title}}</a></li>
+                        {{/each}}
                     </ul>
                 </div>
             </div>
