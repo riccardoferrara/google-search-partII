@@ -42,7 +42,16 @@ let results = [{
 }]
 
 const filterResults = (results, string) => {
-    return results
+    let filteredResults = []
+    console.log("looking for " +
+        string)
+    results.forEach(result => {
+        console.log(result.title)
+        if (result.title.includes(string)) {
+            filteredResults.push(result)
+        }
+    });
+    return filteredResults
 }
 
 router.post('/', (req, res) => {
