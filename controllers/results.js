@@ -43,7 +43,9 @@ results = [{
 
 
 router.get('/', (req, res) => {
-        res.render('results')
+        res.send({
+            results
+        })
     })
     //
     // Export module
