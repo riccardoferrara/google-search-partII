@@ -6,7 +6,7 @@ const router = express.Router()
 
 
 // Create POST controller
-let results = [{
+let data = [{
     title: 'JS tutorials',
     description: 'The best JavaScript tutorials in the galaxy!',
     url: 'https://www.w3schools.com',
@@ -58,7 +58,7 @@ router.post('/', (req, res) => {
         // log the search string on terminal
         console.log(req.body.search)
             // filter the results
-        results = filterResults(results, req.body.search)
+        let results = filterResults(data, req.body.search)
         console.log(results)
         res.render('results', {
             results
