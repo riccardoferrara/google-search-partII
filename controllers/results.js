@@ -47,7 +47,7 @@ const filterResults = (results, string) => {
         string)
     results.forEach(result => {
         console.log(result.title)
-        if (result.title.includes(string)) {
+        if (result.title.toLowerCase().includes(string.toLowerCase())) {
             filteredResults.push(result)
         }
     });
