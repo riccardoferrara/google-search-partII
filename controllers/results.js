@@ -43,7 +43,7 @@ results = [{
 
 
 router.get('/', (req, res) => {
-        res.send({
+        res.render('results', {
             results
         })
     })
