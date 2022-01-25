@@ -42,7 +42,8 @@ results = [{
 }]
 
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
+        console.log(req.body.search)
         res.render('results', {
             results
         })
