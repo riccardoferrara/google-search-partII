@@ -41,24 +41,12 @@ let data = [{
     }]
 }]
 
-const filterResults = (results, string) => {
-    let filteredResults = []
-    console.log("looking for " +
-        string)
-    results.forEach(result => {
-        console.log(result.title)
-        if (result.title.toLowerCase().includes(string.toLowerCase())) {
-            filteredResults.push(result)
-        }
-    });
-    return filteredResults
-}
-
 router.post('/', (req, res) => {
         // log the search string on terminal
         console.log(req.body.search)
             // filter the results
-        let results = filterResults(data, req.body.search)
+        let results = data.filter(result => result.title.includes(req.body.search) || result.description.includes(req.body.search))
+
         console.log(results)
         res.render('results', {
             results
