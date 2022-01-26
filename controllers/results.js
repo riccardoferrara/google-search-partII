@@ -3,8 +3,6 @@ const express = require('express')
 const app = require('../app')
 const router = express.Router()
 
-
-
 // Create POST controller
 let data = [{
     title: 'JS tutorials',
