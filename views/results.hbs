@@ -12,20 +12,7 @@
         <div class="result_number">{{results.length}} results</div>
 
         {{#each results as |result|}}
-            <div class="result">
-                <div class="link_name">{{result.url}}</div>
-                <div>
-                    <h1>
-                        <a href="{{result.url}}">{{result.title}}</a>
-                    </h1>
-                    <p>{{result.description}}</p>
-                    <ul>
-                        {{#each result.links as |link|}}
-                            <li><a class="small_links" href="{{link.url}}" target="_blank">{{link.title}}</a></li>
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
+            {{> result r=result}}
         {{/each}}
 
     </div>

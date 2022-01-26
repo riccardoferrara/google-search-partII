@@ -1,0 +1,14 @@
+<div class="result">
+    <div class="link_name">{{r.url}}</div>
+    <div>
+        <h1>
+            <a href="{{r.url}}">{{r.title}}</a>
+        </h1>
+        <p>{{r.description}}</p>
+        <ul>
+            {{#each r.links as |link|}}
+                <li><a class="small_links" href="{{link.url}}" target="_blank">{{link.title}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
