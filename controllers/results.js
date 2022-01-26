@@ -42,15 +42,19 @@ let data = [{
 }]
 
 router.post('/', (req, res) => {
-        // log the search string on terminal
-        console.log(req.body.search)
-            // filter the results
-        let results = data.filter(result => result.title.includes(req.body.search) || result.description.includes(req.body.search))
+    // log the search string on terminal
+    console.log(req.body.search)
+        // filter the results
+    let results = data.filter(result => result.title.includes(req.body.search) || result.description.includes(req.body.search))
 
-        console.log(results)
-        res.render('results', {
-            results
-        })
+    console.log(results)
+    res.render('results', {
+        results
+    })
+})
+
+router.get('/', (req, res) => {
+        res.render('results')
     })
     //
     // Export module
