@@ -20,19 +20,9 @@ router.get('/', (req, res) => {
 router.post('/', async(req, res) => {
     console.log("SEARCH", req.body.search)
     let results = await Results.find({})
-        // try {
-        //     // log the search string on terminal
-        //     console.log("SEARCH", req.body.search)
-        //         // filter the results
-        //         // let results = data.filter(result => result.title.includes(req.body.search) || result.description.includes(req.body.search))
-        //     let results = await Results.find({})
-        //     console.log(results)
-        //     res.render('results', {
-        //         results
-        //     })
-        // } catch (err) {
-        //     console.log(err)
-        // }
+    res.render('results', {
+        results
+    })
 })
 
 // Export module
