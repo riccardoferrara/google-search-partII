@@ -2,60 +2,38 @@
 const express = require('express')
 const app = require('../app')
 const router = express.Router()
-
-// Create POST controller
-let data = [{
-    title: 'JS tutorials',
-    description: 'The best JavaScript tutorials in the galaxy!',
-    url: 'https://www.w3schools.com',
-    links: [{
-        title: 'JS for Beginners',
-        url: 'https://www.w3schools.com/js'
-    }, {
-        title: 'JS for the Web',
-        url: 'https://www.w3schools.com/js'
-    }]
-}, {
-    title: 'JS tutorials 2 test',
-    description: 'The best JavaScript tutorials in the galaxy!',
-    url: 'https://www.w3schools.com',
-    links: [{
-        title: 'JS for Beginners',
-        url: 'https://www.w3schools.com/js'
-    }, {
-        title: 'JS for the Web',
-        url: 'https://www.w3schools.com/js'
-    }]
-}, {
-    title: 'JS tutorials 3 test',
-    description: 'The best JavaScript tutorials in the galaxy!',
-    url: 'https://www.w3schools.com',
-    links: [{
-        title: 'JS for Beginners',
-        url: 'https://www.w3schools.com/js'
-    }, {
-        title: 'JS for the Web',
-        url: 'https://www.w3schools.com/js'
-    }]
-}]
-
 const Results = require('../models/results')
 
-router.post('/', (req, res) => {
-    // log the search string on terminal
-    console.log(req.body.search)
-        // filter the results
-    let results = data.filter(result => result.title.includes(req.body.search) || result.description.includes(req.body.search))
+// Create POST controller
 
-    console.log(results)
-    res.render('results', {
-        results
-    })
-})
+
+// const getResults = async(search) => {
+//     // let results = await Results.find({ title: search })
+//     let results = await Results.find({ title: search })
+//     return results
+// }
 
 router.get('/', (req, res) => {
-        res.render('results')
-    })
-    //
-    // Export module
+    res.render('results')
+})
+
+router.post('/', async(req, res) => {
+    console.log("SEARCH", req.body.search)
+    let results = await Results.find({})
+        // try {
+        //     // log the search string on terminal
+        //     console.log("SEARCH", req.body.search)
+        //         // filter the results
+        //         // let results = data.filter(result => result.title.includes(req.body.search) || result.description.includes(req.body.search))
+        //     let results = await Results.find({})
+        //     console.log(results)
+        //     res.render('results', {
+        //         results
+        //     })
+        // } catch (err) {
+        //     console.log(err)
+        // }
+})
+
+// Export module
 module.exports = router
