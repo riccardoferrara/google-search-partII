@@ -23,6 +23,7 @@ router.post('/', async(req, res) => {
             $or: [
                 { title: { '$regex': req.body.search, '$options': 'i' } },
                 { description: { '$regex': req.body.search, '$options': 'i' } },
+                { 'links.url': { '$regex': req.body.search, '$options': 'i' } }
             ]
         })
 
