@@ -19,7 +19,12 @@ router.get('/', (req, res) => {
 
 router.post('/', async(req, res) => {
         console.log("SEARCH", req.body.search)
-        let results = await Results.find({ title: { '$regex': req.body.search, '$options': 'i' } })
+        let results = await Results.find({
+            $or: [
+                { title: { '$regex': req.body.search, '$options': 'i' } },
+                { description: { '$regex': req.body.search, '$options': 'i' } },
+            ]
+        })
 
         res.render('results', {
             results
