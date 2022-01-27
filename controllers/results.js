@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 
 router.post('/', async(req, res) => {
     console.log("SEARCH", req.body.search)
-    let results = await Results.find({})
+    let results = await Results.find({ title: req.body.search })
     res.render('results', {
         results
     })
