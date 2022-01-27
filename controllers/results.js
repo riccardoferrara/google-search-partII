@@ -18,12 +18,11 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async(req, res) => {
-    console.log("SEARCH", req.body.search)
-    let results = await Results.find({ title: req.body.search })
-    res.render('results', {
-        results
+        console.log("SEARCH", req.body.search)
+        let results = await Results.find({ "title": { $regex: req.body.search } })
+        res.render('results', {
+            results
+        })
     })
-})
-
-// Export module
+    // Export module
 module.exports = router
