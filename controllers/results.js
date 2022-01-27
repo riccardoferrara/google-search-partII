@@ -39,6 +39,8 @@ let data = [{
     }]
 }]
 
+const Results = require('../models/results')
+
 router.post('/', (req, res) => {
     // log the search string on terminal
     console.log(req.body.search)
